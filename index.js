@@ -8,6 +8,7 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 const gravity = 0.7;
 
+// this is the background object
 const background = new Sprite({ 
   position: {
     x: 0, y: 0,
@@ -16,6 +17,7 @@ const background = new Sprite({
   imageSrc: './img/background.png'
 });
 
+// this is the shop object
 const shop = new Sprite({
   position: {
     x: 600, y: 128
@@ -26,6 +28,7 @@ const shop = new Sprite({
   framesMax: 6
 });
 
+// this is the player1 object
 const player = new Fighter({
   position: { x: 0, y: 0 }, 
   velocity: { x: 0, y: 0 },
@@ -88,6 +91,7 @@ const player = new Fighter({
   }
 });
 
+// this is the player2 object
 const enemy = new Fighter({
   position: { x: 400, y: 45 }, 
   velocity: { x: 0, y: 0 },
@@ -150,6 +154,8 @@ const enemy = new Fighter({
   }
 });
 
+// this variable is the tracker
+// that checks that which key is pressed
 const keys = {
   w: { pressed: false },
   a: { pressed: false },
@@ -160,6 +166,9 @@ const keys = {
 };
 
 decreaseTimer();
+
+// This function controls the
+// animation of everyhthing
 function Animate() {
   window.requestAnimationFrame(Animate);
   c.fillStyle = 'black';
@@ -174,6 +183,8 @@ function Animate() {
   player.velocity.x = 0;
   enemy.velocity.x = 0;
 
+  // enabling the run sprite using the last
+  // key pressed
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -5;
     player.switchSprite('run');
@@ -184,12 +195,16 @@ function Animate() {
     player.switchSprite('idle');
   }
 
+  // enabling the jump and fall sprite
+  // based on their y velocity
   if (player.velocity.y < 0) {
     player.switchSprite('jump');
   } else if (player.velocity.y > 0) {
     player.switchSprite('fall');
   }
   
+  // enabling the run for the player 2 
+  // key pressed sprite using the last
   if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
     enemy.velocity.x = -5;
     enemy.switchSprite('run');
@@ -206,6 +221,7 @@ function Animate() {
     enemy.switchSprite('fall');
   }
 
+  // checking the collision between sprites
   if (
     rectangularCollision({
     rectangle1: player, rectangle2: enemy
@@ -219,10 +235,13 @@ function Animate() {
     });
   }
 
+  // stoping the sprites attack format based on their
+  // sprites frames
   if (player.isAttacking && player.framesCurrent === 4) {
     player.isAttacking = false;
   }
 
+  // checking the collision between sprites
   if (rectangularCollision({
     rectangle1: enemy, rectangle2: player
   }) && enemy.isAttacking && enemy.framesCurrent === 2) {
@@ -233,16 +252,21 @@ function Animate() {
     });
   }
 
+  // stoping the sprites attack format based on their
+  // sprites frames
   if (enemy.isAttacking && enemy.framesCurrent === 2) {
     enemy.isAttacking = false;
   }
 
+  // checking if any players health is 0
+  // and then if its 0 end the game
   if (enemy.health <= 0 || player.health <= 0 && timer >= 0) {
     determineWinner({ player, enemy, timerId });
   }
 }
 
 Animate();
+
 
 window.addEventListener("keydown", (e) => {
   if (!player.dead) {

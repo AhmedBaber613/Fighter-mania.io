@@ -1,3 +1,5 @@
+// constructor of the shop 
+// and the background
 class Sprite {
   constructor({ position, imageSrc, scale = 1, framesMax = 1, offset = { x: 0, y: 0 } }) {
     this.position = position;
@@ -45,6 +47,8 @@ class Sprite {
   }
 }
 
+// the constructor function for
+// player1 and player 2
 class Fighter extends Sprite {
   constructor({ 
       position,
@@ -98,6 +102,8 @@ class Fighter extends Sprite {
     }
   }
 
+  // updates all the sprites and in charge 
+  // of the gravity
   update() {
     this.draw();
     if (!this.dead) 
@@ -118,11 +124,14 @@ class Fighter extends Sprite {
     }
   }
 
+  // in charge of all the attack animation
   attack() {
     this.switchSprite('attack1');
     this.isAttacking = true;
   }
 
+  // in charge of all the
+  // death and takehit animations
   takeHit() {
     this.health -= 10;
 
@@ -133,6 +142,7 @@ class Fighter extends Sprite {
     }
   }
 
+  // switching the sprites actions when invoked
   switchSprite(sprite) {
     if (this.image === this.sprites.death.image) {
       if (this.framesCurrent === this.sprites.death.framesMax - 1)

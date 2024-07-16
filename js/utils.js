@@ -1,3 +1,4 @@
+// all the minor functions
 function rectangularCollision({
   rectangle1,
   rectangle2

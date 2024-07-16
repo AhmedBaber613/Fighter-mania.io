@@ -135,7 +135,7 @@ class Fighter extends Sprite {
   takeHit() {
     this.health -= 10;
 
-    if (this.health <= 0) {
+    if (this.health === 0) {
       this.switchSprite('death');
     } else {
       this.switchSprite('takehit');
@@ -220,3 +220,5 @@ class Fighter extends Sprite {
     }
   }
 }
+
+// yt.chickencraft.nl

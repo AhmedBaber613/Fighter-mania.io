@@ -1,0 +1,124 @@
+#signUpButton {
+  background-color: rgb(63, 154, 252);
+  color: white;
+  border: 3px white solid;
+  border-radius: 5px;
+  margin-top: 4px;
+  padding: 5px;
+}
+
+#signUpButton:hover {
+  background-color: rgb(115, 255, 0);
+  color: black;
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+#signInButton {
+  background-color: rgb(63, 154, 252);
+  color: white;
+  border: 3px white solid;
+  border-radius: 5px;
+  margin-top: 4px;
+  padding: 5px;
+}
+
+#signInButton:hover {
+  background-color: rgb(115, 255, 0);
+  color: black;
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+#signOutButton {
+  background-color: rgb(63, 154, 252);
+  color: white;
+  border: 3px white solid;
+  border-radius: 5px;
+  margin-top: 4px;
+  padding: 5px;
+}
+
+#signOutButton:hover {
+  background-color: rgb(115, 255, 0);
+  color: black;
+  transition: background-color 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
+}
+
+input {
+  font-family: sans-serif;
+  background: rgb(110, 109, 109);
+  border-radius: 4px;
+  padding: 5px;
+  border: 5px white solid;
+}
+
+body {
+  background-color: black;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+}
+.health-bar-container {
+  position: relative;
+  width: calc(50% - 55px);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  border: 4px solid white;
+}
+.health-bar {
+  background-color: red;
+  height: 100%;
+  width: 100%;
+}
+.health-bar-fill {
+  position: absolute;
+  background: #818cf8;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+.timer {
+  background-color: black;
+  width: 100px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 4px solid white;
+  flex-shrink: 0;
+  margin: 0 10px;
+}
+#displayText {
+  position: absolute;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+}
+.auth-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.auth-container input,
+.auth-container button {
+  margin: 5px 0;
+  padding: 10px;
+  width: 200px;
+  font-size: 14px;
+}

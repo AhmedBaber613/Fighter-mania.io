@@ -137,6 +137,7 @@ class Fighter extends Sprite {
 
     if (this.health === 0) {
       this.switchSprite('death');
+      document.querySelectorAll('input, button').forEach(element => element.disabled = false);
     } else {
       this.switchSprite('takehit');
     }
@@ -221,4 +222,8 @@ class Fighter extends Sprite {
   }
 }
 
-// yt.chickencraft.nl
+// Asia.chickencraft.nl
+// play.pvplegacy.net
+// play.minetribes.net
+// play.pika-network.net
+// -7018213512392572056

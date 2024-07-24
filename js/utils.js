@@ -15,13 +15,19 @@ function rectangularCollision({
 function determineWinner({ player, enemy, timerId }){
   clearTimeout(timerId);
   document.querySelector('#displayText').style.display = 'flex';
+  document.querySelector('#displayText').style.zIndex = 1;
   if (player.health === enemy.health) {
     document.querySelector('#displayText').innerHTML = 'tie';
+    document.querySelectorAll('input, button').forEach(element => element.disabled = false);
   } else if (player.health > enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player1 wins!';
+    document.querySelectorAll('input, button').forEach(element => element.disabled = false);
   } else if (player.health < enemy.health) {
     document.querySelector('#displayText').innerHTML = 'Player2 wins!';
+    document.querySelectorAll('input, button').forEach(element => element.disabled = false);
   }
+
+  document.querySelectorAll('input, button').forEach(element => element.disabled = false);
 }
 
 let timer = 60;

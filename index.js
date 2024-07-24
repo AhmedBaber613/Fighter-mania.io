@@ -262,6 +262,7 @@ function Animate() {
   // and then if its 0 end the game
   if (enemy.health <= 0 || player.health <= 0 && timer >= 0) {
     determineWinner({ player, enemy, timerId });
+    document.querySelectorAll('input, button').forEach(element => element.disabled = false);
   }
 }
 
@@ -322,4 +323,5 @@ window.addEventListener("keyup", (e) => {
   }
 });
 
+//play.porkchopsmp.xyz
 //6630829182495574173
